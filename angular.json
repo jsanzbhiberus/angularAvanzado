@@ -788,6 +788,206 @@
           }
         }
       }
+    },
+    "push-imagina-formacion": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/push-imagina-formacion",
+      "sourceRoot": "projects/push-imagina-formacion/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/push-imagina-formacion",
+            "index": "projects/push-imagina-formacion/src/index.html",
+            "main": "projects/push-imagina-formacion/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/push-imagina-formacion/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/push-imagina-formacion/src/favicon.ico",
+              "projects/push-imagina-formacion/src/assets",
+              "projects/push-imagina-formacion/src/firebase-messaging-sw.js"
+            ],
+            "styles": [
+              "projects/push-imagina-formacion/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "push-imagina-formacion:build:production"
+            },
+            "development": {
+              "browserTarget": "push-imagina-formacion:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "push-imagina-formacion:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/push-imagina-formacion/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/push-imagina-formacion/src/favicon.ico",
+              "projects/push-imagina-formacion/src/assets"
+            ],
+            "styles": [
+              "projects/push-imagina-formacion/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "localize-ejemplo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "i18n": {
+          "sourceLocale": "en-EN",
+          "locales": { "en": "locale/messages.en.xlf" }
+      },
+      "root": "projects/localize-ejemplo",
+      "sourceRoot": "projects/localize-ejemplo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "localize": ["en-US"],
+            "outputPath": "dist/localize-ejemplo",
+            "index": "projects/localize-ejemplo/src/index.html",
+            "main": "projects/localize-ejemplo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/localize-ejemplo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/localize-ejemplo/src/favicon.ico",
+              "projects/localize-ejemplo/src/assets"
+            ],
+            "styles": [
+              "projects/localize-ejemplo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "localize-ejemplo:build:production"
+            },
+            "development": {
+              "browserTarget": "localize-ejemplo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "localize-ejemplo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/localize-ejemplo/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/localize-ejemplo/src/favicon.ico",
+              "projects/localize-ejemplo/src/assets"
+            ],
+            "styles": [
+              "projects/localize-ejemplo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
